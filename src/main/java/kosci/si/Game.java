@@ -36,7 +36,7 @@ public class Game {
 
 		return currentDices.clone();
 	}
-
+	
 	private int draw() {
 		return rng.nextInt(6) + 1;
 	}
