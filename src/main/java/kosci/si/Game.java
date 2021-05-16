@@ -22,6 +22,13 @@ public class Game {
 		return currentDices.clone();
 	}
 
+	public int[] rethrowDices(boolean[] rethrow) {
+		for(int i=0; i<rethrow.length; ++i)
+			if(rethrow[i])
+				currentDices[i] = draw();
+		return currentDices.clone();
+	}
+
 	public int[] rethrowDices(int[] indexes) {
 		for (int index : indexes) {
 			currentDices[index] = draw();
@@ -34,6 +41,7 @@ public class Game {
 		return rng.nextInt(6) + 1;
 	}
 
+	// TODO: if category is already in use, then choose best pointing category
 	public void chooseCategory(Category cat) {
 		if (gameStatus.isCategoryAlreadyUsed(cat)) {
 			throw new IllegalStateException("placki"); // TODO; napis?
