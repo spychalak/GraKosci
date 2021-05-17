@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="kosciSI" />
         <module name="kosciSIalpha" />
+        <module name="GraKosci" />
       </profile>
     </annotationProcessing>
   </component>

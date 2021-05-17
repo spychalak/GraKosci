@@ -10,6 +10,10 @@ public class Game {
 
 	private final GameStatus gameStatus = new GameStatus();
 
+	public GameStatus getGameStatus() {
+		return gameStatus;
+	}
+
 	public int getRoundsCount() {
 		return Category.values().length;
 	}
