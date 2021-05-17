@@ -102,8 +102,6 @@ public class Game {
 			}
 		}
 
-		System.out.println("SUBRESULT: " + subresult);
-
 		if (subresult >= 63) {
 			result += 35;
 		}

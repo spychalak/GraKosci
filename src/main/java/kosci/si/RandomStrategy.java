@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class RandomStrategy implements DiceSI {
 	private Random random = new Random();
+	private boolean[] rerolls = new boolean[5];
+
 	public RandomStrategy() {
 	}
 
 	@Override public boolean[] Reroll(int[] dices,
 		boolean[] availableCategories) {
-		boolean[] rerolls = new boolean[5];
 		for(int i=0; i<5; ++i)
 			rerolls[i] = random.nextBoolean();
 		return rerolls;
@@ -35,5 +36,9 @@ public class RandomStrategy implements DiceSI {
 			throw new ArithmeticException("Random bound returned bad value");
 
 		return category;
+	}
+
+	@Override public void Restart() {
+
 	}
 }
