@@ -1,5 +1,6 @@
 package kosci.si;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Game {
@@ -22,23 +23,24 @@ public class Game {
 		for (int i = 0; i < DICE_COUNT; i++) {
 			currentDices[i] = draw();
 		}
-
-		return currentDices.clone();
+		Arrays.sort(currentDices);
+		return currentDices;
 	}
 
 	public int[] rethrowDices(boolean[] rethrow) {
-		for(int i=0; i<rethrow.length; ++i)
+		for(int i=0; i<rethrow.length; ++i) {
 			if(rethrow[i])
 				currentDices[i] = draw();
-		return currentDices.clone();
+		}
+		Arrays.sort(currentDices);
+		return currentDices;
 	}
 
 	public int[] rethrowDices(int[] indexes) {
 		for (int index : indexes) {
 			currentDices[index] = draw();
 		}
-
-		return currentDices.clone();
+		return currentDices;
 	}
 	
 	private int draw() {
