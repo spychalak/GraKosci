@@ -1,7 +1,5 @@
 package kosci.si;
 
-import java.util.Arrays;
-
 public class Main2 {
 	public static void main(String[] args) {
 		int testsCount = 1000000;

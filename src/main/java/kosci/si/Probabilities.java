@@ -53,4 +53,18 @@ public class Probabilities {
 
 
 
+	
+	
+	
+	
+	public static int[][][] GenerateAllValidSets() {
+		int[][][] ret = new int[13][][];
+		
+		
+		
+		
+		
+		return ret;
+	}
 }
+
