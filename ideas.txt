@@ -1,0 +1,24 @@
+
+
+
+
+float p[32] = {0...};
+float ps[32] = {0...};
+
+
+for(układy docelowe pomijając zużyte, ale nie pomijając Yahtzee) {
+	reroll = ...;
+
+	if(Probability(dices, dst) < 0) {
+		int reroll = reroll[4]<<4 | reroll[3]<<3 | reroll[2]<<2 | ...;
+		p[reroll] += Points(dst) * Probability(dices, dst);
+		ps[reroll] += Probability(dices, dst);
+	}
+}
+
+p /= ps;
+
+max(p);
+
+
+

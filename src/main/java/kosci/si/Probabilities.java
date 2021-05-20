@@ -91,29 +91,13 @@ public class Probabilities {
 					p[Category.SMALL_STRAIGHT.getRowIndex()][m][r][n] =
 						SetProbabilities.smallStraight(m, r);
 					p[Category.BIG_STRAIGHT.getRowIndex()][m][r][n] =
-						SetProbabilities.bigStraight(m, r);
+						SetProbabilities.bigStraight(r);
 					p[Category.GENERAL.getRowIndex()][m][r][n] =
 						SetProbabilities.general(r);
 				}
 			}
 		}
 		return p;
-	}
-
-
-
-	
-	
-	
-	
-	public static int[][][] GenerateAllValidSets() {
-		int[][][] ret = new int[13][][];
-		
-		
-		
-		
-		
-		return ret;
 	}
 }
 
