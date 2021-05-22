@@ -7,7 +7,7 @@ public class PointsCalculator {
 	}
 	
 	public static double AveragePointsOfDstCategory(Category cat, int[] dices,
-			boolean[] availableCategories, Integer[] points) {
+			Integer[] points) {
 		boolean isGeneralBonus = dices.length == 5 &&
 			points[Category.GENERAL.getRowIndex()] > 0;
 		for(int i=1; i<5; ++i)

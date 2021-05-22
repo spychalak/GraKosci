@@ -9,17 +9,26 @@ public class Probabilities {
 		public RerollDicesStruct(int[] dst) {
 			missing = new boolean[dst.length];
 		}
+		public int RerollToInt() {
+			int r = 0;
+			for(int i=0; i<5; ++i)
+				if(reroll[i])
+					r |= 1<<i;
+			return r;
+		}
 		public boolean[] reroll = new boolean[5];
 		public boolean[] missing;
 		public int missingCount = 0;
 		public int rerollCount = 0;
 		public int missingToThree = 0;
+		public double probability = 0.0;
 	}
 
-	public static double ProbabilityOfHandFrom(int[] dices, Category cat,
+	public static RerollDicesStruct	ProbabilityOfHandFrom(int[] dices, Category cat,
 			int[] dst) {
 		RerollDicesStruct reroll = WhichDicesToReroll(dices, cat, dst);
-		return ProbabilityOfRethrowingDices(dices, reroll, cat, dst);
+		reroll.probability = ProbabilityOfRethrowingDices(dices, reroll, cat, dst);
+		return reroll;
 	}
 
 	public static RerollDicesStruct WhichDicesToReroll(int[] dices,
