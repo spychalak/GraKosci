@@ -1,6 +1,8 @@
 package kosci.si;
 
 public class HandsetsGenerator {
+	public static int[][][] allSets = GenerateAllValidSets();
+	
     public static int[][][] GenerateAllValidSets() {
         int[][][] ret = new int[13][][];
 

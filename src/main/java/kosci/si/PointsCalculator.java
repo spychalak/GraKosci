@@ -5,6 +5,41 @@ public class PointsCalculator {
 	public PointsCalculator ()
 	{
 	}
+	
+	public static double AveragePointsOfDstCategory(Category cat, int[] dices,
+			boolean[] availableCategories, Integer[] points) {
+		boolean isGeneralBonus = dices.length == 5 &&
+			points[Category.GENERAL.getRowIndex()] > 0;
+		for(int i=1; i<5; ++i)
+			isGeneralBonus &= (dices[i] == dices[0]);
+		switch(cat) {
+		case FULL_HOUSE:
+			return (isGeneralBonus?100.0:0.0) + 25.0;
+		case SMALL_STRAIGHT:
+			return (isGeneralBonus?100.0:0.0) + 30.0;
+		case BIG_STRAIGHT:
+			return (isGeneralBonus?100.0:0.0) + 40.0;
+		case GENERAL:
+			return 50.0;
+		case CHANCE:
+			return (isGeneralBonus?100.0:0.0) + 5.0 * 3.5;
+		case THREE_OF_A_KIND:
+		case FOUR_OF_A_KIND: {
+			double p = (double)(dices.length * dices[0]) +
+				(double)(5-dices.length) * 3.5;
+	
+			if(isGeneralBonus)
+				p += 100.0;
+			return p;
+			}
+		default: {
+			double p = (double)(dices.length * dices[0]);
+			if(isGeneralBonus && dices[0]-1 == cat.getRowIndex())
+				p += 100.0;
+			return p;
+			}
+		}
+	}
 
 	public static int getPoints(int[] currentDices, Category cat) {
 

@@ -5,7 +5,7 @@ package kosci.si;
 
 public class Probabilities {
 
-	private static class RerollDicesStruct {
+	public static class RerollDicesStruct {
 		public RerollDicesStruct(int[] dst) {
 			missing = new boolean[dst.length];
 		}
@@ -25,24 +25,23 @@ public class Probabilities {
 	public static RerollDicesStruct WhichDicesToReroll(int[] dices,
 			Category cat, int[] dst) {
 		RerollDicesStruct ret = new RerollDicesStruct(dst);
-		int it = 0;
+		
+		for(int i=0; i<5; ++i)
+			ret.reroll[i] = true;
+		ret.missingCount = dst.length;
+		ret.rerollCount = 5;
 		for(int i=0; i<dst.length; ++i) {
-			for(; dices[it] < dst[i] && it<dices.length;
-					++it, ++ret.rerollCount)
-				ret.reroll[it] = true;
-			if(it < dices.length) {
-				if(dices[it] == dst[i]) {
-					ret.reroll[it] = false;
-					ret.missing[i] = false;
-					++it;
-				} else {
-					ret.reroll[it] = true;
-					ret.missing[i] = true;
-					++ret.missingCount;
+			ret.missing[i] = true;
+			for(int j=0; j<dices.length; ++j) {
+				if(ret.reroll[j] == true) {
+					if(dices[j] == dst[i]) {
+						ret.missingCount--;
+						ret.rerollCount--;
+						ret.reroll[j] = false;
+						ret.missing[i] = false;
+						break;
+					}
 				}
-			} else {
-				ret.missing[i] = true;
-				++ret.missingCount;
 			}
 		}
 		if(cat == Category.FULL_HOUSE) {
@@ -69,19 +68,20 @@ public class Probabilities {
 	final private static double[][][][] probabilities = GenerateProbabilitiesArray();
 	
 	public static double[][][][] GenerateProbabilitiesArray() {
-		double p[][][][] = new double[13][5][5][3];
+		double p[][][][] = new double[13][6][6][4];
 		for(double[][][] a : p) {
 			for(double[][] b : a) {
 				for(double[] c : b) {
 					c[0] = 0;
 					c[1] = 0;
 					c[2] = 0;
+					c[3] = 0;
 				}
 			}
 		}
-		for(int m=0; m<5; ++m) {
-			for(int r=0; r<5; ++r) {
-				for(int n=0; n<3; ++n) {
+		for(int m=0; m<=5; ++m) {
+			for(int r=0; r<=5; ++r) {
+				for(int n=0; n<=3; ++n) {
 					p[Category.THREE_OF_A_KIND.getRowIndex()][m][r][n] =
 						SetProbabilities.threeOfAKind(m, r);
 					p[Category.FOUR_OF_A_KIND.getRowIndex()][m][r][n] =
