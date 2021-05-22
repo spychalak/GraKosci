@@ -66,8 +66,8 @@ public class PointsCalculator {
 			}
 		}
 
-		if (str == 5) return 40;
-		else if (str == 4) return 30;
+		if (str == 5 && straightLength == 5) return 40;
+		else if (str == 4 && straightLength == 4) return 30;
 
 		return 0;
 
