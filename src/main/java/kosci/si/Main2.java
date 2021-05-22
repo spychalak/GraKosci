@@ -11,11 +11,11 @@ public class Main2 {
 			for (int roundNo = 0; roundNo < game.getRoundsCount(); roundNo++) {
 				int[] dices = game.throwDices();
 
-				boolean[] rethrow = si.Reroll(dices, game.getGameStatus().getUsedCategories());
+				boolean[] rethrow = si.Reroll(dices, game.getGameStatus().getCatPoints());
 				dices = game.rethrowDices(rethrow);
-				rethrow = si.Reroll(dices, game.getGameStatus().getUsedCategories());
+				rethrow = si.Reroll(dices, game.getGameStatus().getCatPoints());
 				dices = game.rethrowDices(rethrow);
-				Category category = si.ChooseCategory(dices, game.getGameStatus().getUsedCategories());
+				Category category = si.ChooseCategory(dices, game.getGameStatus().getCatPoints());
 				game.chooseCategory(category);
 			}
 			sum += (long)game.getResult();
