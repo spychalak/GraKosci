@@ -9,14 +9,20 @@ public class GreedyBaseDiceSI implements DiceSI {
 
     @Override
     public Category ChooseCategory(int[] dices, Integer[] categories) {
-        Category choose = Category.CHANCE;
-        int max = 0;
+        Category choose = null;
+        int max = -1;
         for(int i = 0; i < 13; i++) {
             if(categories[i] == null) {
-                int currentIterationPoints = PointsCalculator.getPoints(dices, Category.getByRowIndex(i));
-                if(currentIterationPoints >= max) {
+                if(max < 0) {
                     choose = Category.getByRowIndex(i);
-                    max = currentIterationPoints;
+                    max = 0;
+                }
+                int currentIterationPoints = PointsCalculator.getPoints(dices, Category.getByRowIndex(i));
+                if(currentIterationPoints != 0) {
+                    if (currentIterationPoints >= max) {
+                        choose = Category.getByRowIndex(i);
+                        max = currentIterationPoints;
+                    }
                 }
             }
         }
