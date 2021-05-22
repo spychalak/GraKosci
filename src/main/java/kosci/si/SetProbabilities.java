@@ -4,35 +4,35 @@ import java.lang.Math;
 
 public class SetProbabilities {
     private static int factorial(int number) {
-        if (number < 1) {
-            return 1;
-        }
-        else {
-            return number * factorial(number - 1);
-        }
+		int ret = 1;
+		for(;number>1; --number)
+			ret *= number;
+		return ret;
     }
+	
+	public static double newton(int u, int d) {
+		return factorial(u) / (factorial(d) * factorial(u-d));
+	}
 
     public static double threeOfAKind(int m, int r) {
-        int factorialR = factorial(r);
-        double firstCase = factorialR / (factorial(m) * factorial(r - m)) * Math.pow(5, r-m);
-        double secondCase = factorialR / (factorial(m + 1) * factorial(r - (m + 1))) * Math.pow(5, r - (m + 1));
-        return (firstCase + secondCase + 1) / Math.pow(6, r);
+        double firstCase = newton(r, m) * Math.pow(5, r-m);
+        double secondCase = newton(r, m+1) * Math.pow(5, r - (m + 1));
+        return (firstCase + secondCase + 1.0) / Math.pow(6, r);
     }
 
     public static double fourOfAKind(int m, int r) {
-        double numerator = factorial(r) / (factorial(m) * factorial(r - m)) * Math.pow(5, r-m) + 1;
+        double numerator = newton(r, m) * Math.pow(5, r-m) + 1.0;
         return numerator / Math.pow(6, r);
     }
 
     public static double fullHouse(int r, int n) {
-        double numerator = factorial(r) / (factorial(n) * factorial(r - n));
-        return numerator / Math.pow(6, r);
+        return newton(r, n) / Math.pow(6, r);
     }
 
     public static double smallStraight(int m, int r) {
         int factorialR = factorial(r);
         double firstCase = factorialR * (6 - m);
-        double secondCase = factorialR * m / 2;
+        double secondCase = (double)(factorialR * m) / 2.0;
         return (firstCase + secondCase) / Math.pow(6, r);
     }
 
@@ -41,7 +41,6 @@ public class SetProbabilities {
     }
 
     public static double general(int r) {
-
         return Math.pow(1.0/6.0, r);
     }
 }

@@ -3,7 +3,7 @@ package kosci.si;
 public class HandsetsGenerator {
 	public static int[][][] allSets = GenerateAllValidSets();
 	
-    public static int[][][] GenerateAllValidSets() {
+    private static int[][][] GenerateAllValidSets() {
         int[][][] ret = new int[13][][];
 
         //3 OR MORE ONES-SIXES
