@@ -9,10 +9,21 @@ public class GreedySI2 implements DiceSI {
 
     @Override public boolean[] Reroll(int[] dices,
                                       Integer[] categories) {
+        
+        boolean[] b = new boolean[5];
+        int[][][] sets = HandsetsGenerator.allSets;
 
-        for(int i=0; i<5; ++i)
-            rerolls[i] = random.nextBoolean();
-        return rerolls;
+        for (int i=0; i<12; i++)
+        {
+            for (int j=0; j<sets[i].length; j++)
+            {
+                Probabilities.RerollDicesStruct prob = Probabilities.ProbabilityOfHandFrom(dices,Category.getByRowIndex(i),sets[i][j]);
+                System.out.println(prob.probability);
+            }
+            System.out.println("------------------");
+        }
+        return b;
+
     }
 
     @Override public Category ChooseCategory(int[] dices,

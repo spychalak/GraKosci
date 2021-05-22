@@ -2,10 +2,10 @@ package kosci.si;
 
 public class Main2 {
 	public static void main(String[] args) {
-		int testsCount = 1000000;
+		int testsCount = 100000;
 		long sum = 0;
 		for(int i=0; i<testsCount; ++i) {
-			DiceSI si = new RandomStrategy();
+			DiceSI si = new GreedySI1();
 
 			Game game = new Game();
 			for (int roundNo = 0; roundNo < game.getRoundsCount(); roundNo++) {

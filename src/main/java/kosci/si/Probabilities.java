@@ -103,6 +103,10 @@ public class Probabilities {
 						SetProbabilities.bigStraight(r);
 					p[Category.GENERAL.getRowIndex()][m][r][n] =
 						SetProbabilities.general(r);
+					for(int i=0; i<6; ++i){
+						p[i][m][r][n] =
+								SetProbabilities.upperTable(m,r);
+					}
 				}
 			}
 		}

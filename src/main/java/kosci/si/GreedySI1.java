@@ -1,6 +1,6 @@
 package kosci.si;
 
-public class GreedySI1 implements DiceSI {
+public class GreedySI1 extends GreedyBaseDiceSI implements DiceSI  {
 	public GreedySI1() {}
 	
 	@Override
@@ -41,10 +41,6 @@ public class GreedySI1 implements DiceSI {
 		
 		return reroll;
 	}
-	
-	@Override
-	public Category ChooseCategory(int[] dices, Integer[] categories) {
-		return null;
-	}
+
 }
 

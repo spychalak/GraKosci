@@ -43,4 +43,18 @@ public class SetProbabilities {
     public static double general(int r) {
         return Math.pow(1.0/6.0, r);
     }
+
+    public static double upperTable(int m, int r){
+        int diff = r-m;
+        if (diff == 2) {
+            return threeOfAKind(m,r);
+        }
+        else if (diff == 1){
+            return fourOfAKind(m,r);
+        }
+        else if (diff == 0){
+            return general(r);
+        }
+        return 0.0;
+    }
 }
