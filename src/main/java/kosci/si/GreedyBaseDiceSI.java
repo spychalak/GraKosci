@@ -8,11 +8,11 @@ public class GreedyBaseDiceSI implements DiceSI {
     private boolean[] rerolls = new boolean[5];
 
     @Override
-    public Category ChooseCategory(int[] dices, boolean[] availableCategories) {
+    public Category ChooseCategory(int[] dices, Integer[] categories) {
         Category choose = Category.CHANCE;
         int max = 0;
         for(int i = 0; i < 13; i++) {
-            if(availableCategories[i]) {
+            if(categories[i] == null) {
                 int currentIterationPoints = PointsCalculator.getPoints(dices, Category.getByRowIndex(i));
                 if(currentIterationPoints >= max) {
                     choose = Category.getByRowIndex(i);
@@ -23,7 +23,7 @@ public class GreedyBaseDiceSI implements DiceSI {
         return choose;
     }
     @Override
-    public boolean[] Reroll(int[] dices, boolean[] availableCategories) {
+    public boolean[] Reroll(int[] dices, Integer[] categories) {
         for(int i=0; i<5; ++i)
             rerolls[i] = random.nextBoolean();
         return rerolls;
