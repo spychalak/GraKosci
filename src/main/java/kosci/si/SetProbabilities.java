@@ -41,6 +41,7 @@ public class SetProbabilities {
     }
 
     public static double general(int r) {
-        return Math.pow(1/6, r);
+
+        return Math.pow(1.0/6.0, r);
     }
 }
