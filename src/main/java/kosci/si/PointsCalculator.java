@@ -27,13 +27,15 @@ public class PointsCalculator {
 		case FOUR_OF_A_KIND: {
 			double p = (double)(dices.length * dices[0]) +
 				(double)(5-dices.length) * 3.5;
-	
 			if(isGeneralBonus)
 				p += 100.0;
 			return p;
 			}
 		default: {
-			double p = (double)(dices.length * dices[0]);
+			// TODO: wtf is going on with this +30 ?!?
+			// 			I don't want to know what's going on
+			// 			but without it, strategy does not work
+			double p = dices.length * dices[0] + 30; // +30 -> going for upper table bonus
 			if(isGeneralBonus && dices[0]-1 == cat.getRowIndex())
 				p += 100.0;
 			return p;

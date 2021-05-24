@@ -1,10 +1,15 @@
 package kosci.si;
 
-public class GreedySI1 extends GreedyBaseDiceSI {
+public class GreedyOptimised1 extends GreedyBaseDiceSI {
 	private boolean[] reroll = new boolean[5];
 	private double p[] = new double[32];
 	
-	public GreedySI1() {}
+	private static final double[] averagePoints = new double[] {
+		5, 10, 15, 20, 25, 30,
+		30, 30, 25, 30, 40, 50, 30
+	};
+	
+	public GreedyOptimised1() {}
 	
 	@Override
 	public void Restart() {
@@ -27,7 +32,7 @@ public class GreedySI1 extends GreedyBaseDiceSI {
 					int reroll = rerollStruct.RerollToInt();
 					double points = PointsCalculator.AveragePointsOfDstCategory(
 							cat, dices, categories);
-					p[reroll] += probability * points;
+					p[reroll] += probability * points * averagePoints[c];
 				}
 			}
 		}

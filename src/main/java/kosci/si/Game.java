@@ -50,7 +50,7 @@ public class Game {
 	// TODO: if category is already in use, then choose best pointing category
 	public void chooseCategory(Category cat) {
 		if (gameStatus.isCategoryAlreadyUsed(cat)) {
-			throw new IllegalStateException("placki"); // TODO; napis?
+			throw new IllegalStateException("category already in use: " + cat); // TODO; napis?
 		}
 
 		int pointsAchieved = PointsCalculator.getPoints(currentDices, cat);

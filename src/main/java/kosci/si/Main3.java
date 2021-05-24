@@ -9,7 +9,7 @@ public class Main3 {
      //   int testsCount = 1000000;
         long sum = 0;
         //for(int i=0; i<testsCount; ++i) {
-            DiceSI si = new GreedySI1();
+            DiceSI si = new GreedyOptimised1();
 
             Game game = new Game();
             for (int roundNo = 0; roundNo < game.getRoundsCount(); roundNo++) {

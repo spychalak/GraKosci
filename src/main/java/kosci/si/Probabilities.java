@@ -31,6 +31,7 @@ public class Probabilities {
 		return reroll;
 	}
 
+	
 	public static RerollDicesStruct WhichDicesToReroll(int[] dices,
 			Category cat, int[] dst) {
 		RerollDicesStruct ret = new RerollDicesStruct(dst);
