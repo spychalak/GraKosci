@@ -7,7 +7,7 @@ public class Main2 {
 		int maxGeneral = 0;
 		int maxPoints = 0;
 		
-		DiceSI si = new GreedySI1();
+		DiceSI si = new GreedyOptimised1();
 		for(int i=0; i<testsCount; ++i) {
 			si.Restart();
 

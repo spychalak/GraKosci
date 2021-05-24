@@ -32,9 +32,6 @@ public class PointsCalculator {
 			return p;
 			}
 		default: {
-			// TODO: wtf is going on with this +30 ?!?
-			// 			I don't want to know what's going on
-			// 			but without it, strategy does not work
 			double p = dices.length * dices[0] + 30; // +30 -> going for upper table bonus
 			if(isGeneralBonus && dices[0]-1 == cat.getRowIndex())
 				p += 100.0;

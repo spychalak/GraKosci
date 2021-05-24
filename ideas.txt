@@ -22,3 +22,11 @@ max(p);
 
 
 
+
+
+Sprawozdanie;
+	opisać zasady gry
+	opisać wykorzystane metody
+	Ew. poprawa: algorytm dynamiczny (cała gra: przyszłość/przeszłość),
+		Alhpa-beta pruning.
+
