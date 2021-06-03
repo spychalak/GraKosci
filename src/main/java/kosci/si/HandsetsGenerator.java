@@ -1,8 +1,8 @@
 package kosci.si;
 
 public class HandsetsGenerator {
-	public static int[][][] allSets = GenerateAllValidSets();
-	
+    public static int[][][] allSets = GenerateAllValidSets();
+
     private static int[][][] GenerateAllValidSets() {
         int[][][] ret = new int[13][][];
 
@@ -32,15 +32,12 @@ public class HandsetsGenerator {
 
     private static void GenerateUpperTable(int[][][] ret) {
 
-        for (int i=0; i<6; i++)
-        {
-            ret[i] = new int [3][];
-            for (int j=0; j<=2; j++)
-            {
-                ret[i][j] = new int [j+3];
-                int value = i+1;
-                for (int k=0; k<j+3 ;k++)
-                {
+        for (int i = 0; i < 6; i++) {
+            ret[i] = new int[3][];
+            for (int j = 0; j <= 2; j++) {
+                ret[i][j] = new int[j + 3];
+                int value = i + 1;
+                for (int k = 0; k < j + 3; k++) {
                     ret[i][j][k] = value;
                 }
             }

@@ -47,7 +47,7 @@ public class SetProbabilities {
     public static double upperTable(int m, int r){
         int diff = r-m;
         if (diff == 2) {
-            return threeOfAKind(m,r);
+            return threeOfAKind(m, r);
         }
         else if (diff == 1){
             return fourOfAKind(m,r);
