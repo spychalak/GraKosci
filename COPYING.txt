@@ -1,0 +1,4 @@
+Copyright (C) 2021
+Marek Zalewski s180465
+Kamil Paluszewski s180194
+Michał Spychalski s180018
